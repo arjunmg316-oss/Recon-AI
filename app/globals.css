@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism card base */
+.glass-card {
+  @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.1] rounded-2xl;
+}
+
+.glass-card-hover {
+  @apply glass-card transition-all duration-300 hover:bg-white/[0.08] hover:border-white/[0.2] hover:shadow-lg;
+}
+
+/* Neon glow effects */
+.glow-neon-blue {
+  @apply shadow-neon-blue;
+}
+
+.glow-neon-purple {
+  @apply shadow-neon-purple;
+}
+
+.glow-neon-cyan {
+  @apply shadow-neon-cyan;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-neon bg-clip-text text-transparent;
+}
+
+/* Animated border */
+.animated-border {
+  @apply relative border border-neon-blue/50 rounded-lg overflow-hidden;
+}
+
+.animated-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.5), transparent);
+  animation: scan 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Particle effect */
+.particle {
+  @apply absolute rounded-full;
+}
+
+/* Neural network background */
+.neural-network {
+  background-image: 
+    linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: drift 20s linear infinite;
+}
+
+@keyframes drift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+/* Holographic effect */
+.holographic {
+  background: linear-gradient(135deg, 
+    rgba(0, 212, 255, 0.1) 0%, 
+    rgba(176, 38, 255, 0.1) 50%, 
+    rgba(0, 255, 255, 0.1) 100%);
+  box-shadow: 
+    inset 0 0 20px rgba(0, 212, 255, 0.05),
+    inset 0 0 40px rgba(176, 38, 255, 0.05);
+}
+
+/* Smooth scroll */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 212, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #00d4ff, #b026ff);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #00ffff, #b026ff);
+}
+
+/* Input focus styles */
+input:focus,
+textarea:focus,
+select:focus {
+  @apply outline-none ring-2 ring-neon-blue/50;
+}
+
+/* Loading state */
+@keyframes loading-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading-pulse {
+  animation: loading-pulse 1.5s infinite;
+}
+
+/* Typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end);
+}
+
+/* Cursor blink */
+@keyframes blink {
+  0%, 49% {
+    border-right-color: rgba(0, 212, 255, 1);
+  }
+  50%, 100% {
+    border-right-color: transparent;
+  }
+}
+
+.typing-cursor {
+  border-right: 2px solid rgba(0, 212, 255, 1);
+  animation: blink 0.75s step-end infinite;
+}
