@@ -29,8 +29,8 @@ export default function NewInvestigationPage() {
     category: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = (e?: React.FormEvent) => {
+    e?.preventDefault();
     // Simulate case creation
     window.location.href = "/reconstruction";
   };
@@ -239,7 +239,7 @@ export default function NewInvestigationPage() {
                     size="lg"
                     color="gradient"
                     className="flex-1"
-                    onClick={handleSubmit}
+                    onClick={() => handleSubmit()}
                   >
                     Initialize AI Reconstruction
                   </NeonButton>
