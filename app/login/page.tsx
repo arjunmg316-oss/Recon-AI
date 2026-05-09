@@ -14,8 +14,7 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleLogin = () => {
     // Simulate login
     window.location.href = "/dashboard";
   };
@@ -26,7 +25,7 @@ export default function LoginPage() {
       <AnimatedBackground />
 
       <div className="relative z-10 w-full max-w-md">
-        <motion.div
+        <motion.div    
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -49,7 +48,7 @@ export default function LoginPage() {
 
         <GlassCard gradient="purple" className="p-8">
           <motion.form
-            onSubmit={handleLogin}
+            onSubmit={(e) => e.preventDefault()}
             className="space-y-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -134,7 +133,7 @@ export default function LoginPage() {
               transition={{ delay: 0.4, duration: 0.6 }}
             >
               <NeonButton
-                onClick={handleLogin}
+                onClick={() => handleLogin()}
                 size="lg"
                 color="gradient"
                 className="w-full"
