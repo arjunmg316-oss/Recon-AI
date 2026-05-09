@@ -126,12 +126,14 @@ export default function ContradictionsPage() {
               transition={{ delay: 0.3 }}
             >
               {contradictions.map((contradiction, i) => {
-                const severityColor = {
+                const severityMap = {
                   Critical: "border-l-4 border-l-red-500",
                   High: "border-l-4 border-l-neon-purple",
                   Medium: "border-l-4 border-l-neon-blue",
                   Low: "border-l-4 border-l-neon-cyan",
-                }[contradiction.severity as any];
+                };
+                const severityColor = 
+                  severityMap[contradiction.severity as  keyof typeof severityMap];
 
                 return (
                   <motion.div
